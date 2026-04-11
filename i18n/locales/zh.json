@@ -11,6 +11,7 @@
         "about": "关于协会",
         "links": "相关链接",
         "timeline": "时间线",
+        "ctf": "CTF赛事",
         "aboutChildren": {
             "index": "协会简介",
             "leaders": "历届负责人",
@@ -25,6 +26,13 @@
             "meta": {
                 "title": "时间线 - 江西财经大学网络安全协会",
                 "description": "记录江西财经大学网络安全协会的发展历程与重要里程碑。"
+            }
+        },
+        "ctf": {
+            "title": "CTF赛事",
+            "meta": {
+                "title": "CTF 赛事日历 - 江西财经大学网络安全协会",
+                "description": "全球 CTF 网络安全竞赛时间表，实时更新赛事信息。"
             }
         },
         "privacy": {
@@ -266,10 +274,54 @@
             "finished": "已结束",
             "unknown": "状态未知"
         },
+        "loading": "正在加载赛事数据...",
         "reload": "刷新",
         "error": "赛事数据加载失败，请稍后重试",
         "empty": "暂时没有可显示的赛事",
-        "sourceLabel": "数据来源：{source}"
+        "emptyHint": "暂无近期赛事，请稍后再来查看",
+        "fetchError": "获取赛事数据失败",
+        "showMore": "显示更多",
+        "showLess": "显示较少",
+        "sourceLabel": "数据来源：{source}",
+        "filters": {
+            "all": "全部赛事",
+            "domestic": "只看国内",
+            "foreign": "只看国外"
+        },
+        "view": {
+            "calendar": "月",
+            "list": "列表"
+        },
+        "summary": {
+            "totalEvents": "共 {count} 个赛事",
+            "monthEvents": "本月共 {count} 场赛事",
+            "monthEmpty": "当前月份暂无符合筛选条件的赛事",
+            "dayEventsShort": "{count}场",
+            "moreEvents": "+{count} 场"
+        },
+        "sheet": {
+            "daySummary": "当日共 {count} 场赛事",
+            "openList": "列表查看",
+            "empty": "这一天暂无赛事"
+        },
+        "duration": {
+            "day": "1天",
+            "days": "{days}天",
+            "hours": "{hours}小时",
+            "dayHours": "{days}天 {hours}小时",
+            "single": "单日"
+        },
+        "table": {
+            "event": "赛事",
+            "time": "时间",
+            "start": "开始",
+            "end": "结束",
+            "duration": "时长",
+            "status": "状态",
+            "action": "操作",
+            "join": "参加",
+            "addToCalendar": "添加到日历"
+        }
     },
     "calendar": {
         "monthSuffix": "月",
