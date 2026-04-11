@@ -18,7 +18,7 @@
                         @click="refresh"
                         class="text-(--md-sys-color-primary) hover:underline"
                     >
-                        {{ t("ctf.reload") }}
+                        {{ t("common.actions.reload") }}
                     </button>
                 </div>
             </div>
