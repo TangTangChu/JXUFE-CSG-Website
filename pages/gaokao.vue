@@ -9,7 +9,7 @@
             >
                 <AnzuProgressRing :size="56" status="loading" />
                 <p class="text-sm sm:text-base">
-                    {{ t("pages.volunteer.loading") }}
+                    {{ t("pages.gaokao.loading") }}
                 </p>
             </div>
 
@@ -21,7 +21,7 @@
                     <ExclamationTriangleIcon class="mt-0.5 h-5 w-5 shrink-0" />
                     <div class="space-y-2">
                         <p class="font-semibold">
-                            {{ t("pages.volunteer.error") }}
+                            {{ t("pages.gaokao.error") }}
                         </p>
                         <p class="text-sm opacity-80">{{ configError }}</p>
                     </div>
@@ -41,7 +41,7 @@
                         <label
                             class="text-xl font-bold text-(--md-sys-color-on-surface) sm:text-2xl"
                         >
-                            {{ t("pages.volunteer.filters.dataSource") }}
+                            {{ t("pages.gaokao.filters.dataSource") }}
                         </label>
                         <AnzuSelector
                             v-model="dataSource"
@@ -57,16 +57,16 @@
                                 <label
                                     class="text-sm font-medium text-(--md-sys-color-on-surface-variant)"
                                 >
-                                    {{ t("pages.volunteer.filters.year") }}
+                                    {{ t("pages.gaokao.filters.year") }}
                                 </label>
                                 <AnzuComboBox
                                     v-model="selectedYear"
                                     :items="availableYears"
                                     :placeholder="
-                                        t('pages.volunteer.placeholder.year')
+                                        t('pages.gaokao.placeholder.year')
                                     "
                                     :search-placeholder="
-                                        t('pages.volunteer.placeholder.year')
+                                        t('pages.gaokao.placeholder.year')
                                     "
                                     :empty-text="t('common.items.empty')"
                                     menu-width-class="w-full"
@@ -79,19 +79,19 @@
                                 <label
                                     class="text-sm font-medium text-(--md-sys-color-on-surface-variant)"
                                 >
-                                    {{ t("pages.volunteer.filters.province") }}
+                                    {{ t("pages.gaokao.filters.province") }}
                                 </label>
                                 <AnzuComboBox
                                     v-model="selectedProvince"
                                     :items="availableProvinces"
                                     :placeholder="
                                         t(
-                                            'pages.volunteer.placeholder.province',
+                                            'pages.gaokao.placeholder.province',
                                         )
                                     "
                                     :search-placeholder="
                                         t(
-                                            'pages.volunteer.placeholder.province',
+                                            'pages.gaokao.placeholder.province',
                                         )
                                     "
                                     :empty-text="t('common.items.empty')"
@@ -108,10 +108,10 @@
                                     {{
                                         dataSource === "plan"
                                             ? t(
-                                                  "pages.volunteer.filters.planType",
+                                                  "pages.gaokao.filters.planType",
                                               )
                                             : t(
-                                                  "pages.volunteer.filters.category",
+                                                  "pages.gaokao.filters.category",
                                               )
                                     }}
                                 </label>
@@ -121,12 +121,12 @@
                                     :items="availablePlanTypes"
                                     :placeholder="
                                         t(
-                                            'pages.volunteer.placeholder.planType',
+                                            'pages.gaokao.placeholder.planType',
                                         )
                                     "
                                     :search-placeholder="
                                         t(
-                                            'pages.volunteer.placeholder.planType',
+                                            'pages.gaokao.placeholder.planType',
                                         )
                                     "
                                     :empty-text="t('common.items.empty')"
@@ -139,12 +139,12 @@
                                     :items="availableCategories"
                                     :placeholder="
                                         t(
-                                            'pages.volunteer.placeholder.category',
+                                            'pages.gaokao.placeholder.category',
                                         )
                                     "
                                     :search-placeholder="
                                         t(
-                                            'pages.volunteer.placeholder.category',
+                                            'pages.gaokao.placeholder.category',
                                         )
                                     "
                                     :empty-text="t('common.items.empty')"
@@ -161,7 +161,7 @@
                                 <label
                                     class="text-sm font-medium text-(--md-sys-color-on-surface-variant)"
                                 >
-                                    {{ t("pages.volunteer.filters.yourScore") }}
+                                    {{ t("pages.gaokao.filters.yourScore") }}
                                 </label>
                                 <AnzuInput
                                     v-model.number="userScore"
@@ -170,7 +170,7 @@
                                     max="750"
                                     class="w-full"
                                     :placeholder="
-                                        t('pages.volunteer.placeholder.score')
+                                        t('pages.gaokao.placeholder.score')
                                     "
                                 />
                             </div>
@@ -183,7 +183,7 @@
                                     class="text-sm font-medium text-(--md-sys-color-on-surface-variant)"
                                 >
                                     {{
-                                        t("pages.volunteer.filters.yourRanking")
+                                        t("pages.gaokao.filters.yourRanking")
                                     }}
                                 </label>
                                 <AnzuInput
@@ -192,7 +192,7 @@
                                     min="1"
                                     class="w-full"
                                     :placeholder="
-                                        t('pages.volunteer.placeholder.ranking')
+                                        t('pages.gaokao.placeholder.ranking')
                                     "
                                 />
                             </div>
@@ -203,7 +203,7 @@
                                     <ArrowPathIcon class="h-4 w-4" />
                                 </template>
                                 {{
-                                    t("pages.volunteer.filters.reset") || "重置"
+                                    t("pages.gaokao.filters.reset") || "重置"
                                 }}
                             </AnzuButton>
                             <AnzuButton
@@ -215,7 +215,7 @@
                                 <template #icon>
                                     <MagnifyingGlassIcon class="h-4 w-4" />
                                 </template>
-                                {{ t("pages.volunteer.filters.query") }}
+                                {{ t("pages.gaokao.filters.query") }}
                             </AnzuButton>
                         </div>
                     </div>
@@ -223,36 +223,10 @@
 
                 <AnzuAlert
                     type="info"
-                    :title="t('pages.volunteer.sourceAlert.title')"
+                    :title="t('pages.gaokao.sourceAlert.title')"
                 >
                     <div class="leading-relaxed whitespace-pre-line opacity-90">
-                        <i18n-t
-                            v-if="
-                                dataSource === 'zsjy' || dataSource === 'plan'
-                            "
-                            :keypath="
-                                dataSource === 'zsjy'
-                                    ? 'pages.volunteer.dataSource.zsjyDescription'
-                                    : 'pages.volunteer.dataSource.planDescription'
-                            "
-                            tag="span"
-                        >
-                            <template #link>
-                                <a
-                                    href="https://zsjy.jxufe.edu.cn/"
-                                    target="_blank"
-                                    class="font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:text-primary-600 hover:decoration-primary"
-                                    >{{
-                                        $t(
-                                            "pages.volunteer.dataSource.zsjyLinkText",
-                                        )
-                                    }}</a
-                                >
-                            </template>
-                        </i18n-t>
-                        <span v-else>
-                            {{ currentSourceDescription }}
-                        </span>
+                        {{ t("pages.gaokao.sourceAlert.description") }}
                     </div>
                 </AnzuAlert>
 
@@ -264,7 +238,7 @@
                         class="h-10 w-10 text-(--md-sys-color-on-surface-variant) opacity-40"
                     />
                     <p class="text-sm text-(--md-sys-color-on-surface-variant)">
-                        {{ t("pages.volunteer.selectHint") }}
+                        {{ t("pages.gaokao.selectHint") }}
                     </p>
                 </div>
 
@@ -274,7 +248,7 @@
                 >
                     <AnzuProgressRing :size="48" status="loading" />
                     <p class="text-sm">
-                        {{ t("pages.volunteer.loading") }}
+                        {{ t("pages.gaokao.loading") }}
                     </p>
                 </div>
 
@@ -288,7 +262,7 @@
                         />
                         <div class="space-y-2">
                             <p class="font-semibold">
-                                {{ t("pages.volunteer.fetchError") }}
+                                {{ t("pages.gaokao.fetchError") }}
                             </p>
                             <p class="text-sm opacity-80">{{ dataError }}</p>
                         </div>
@@ -309,12 +283,12 @@
                         <p
                             class="text-base font-medium text-(--md-sys-color-on-surface)"
                         >
-                            {{ t("pages.volunteer.empty") }}
+                            {{ t("pages.gaokao.empty") }}
                         </p>
                         <p
                             class="text-sm text-(--md-sys-color-on-surface-variant)"
                         >
-                            {{ t("pages.volunteer.emptyHint") }}
+                            {{ t("pages.gaokao.emptyHint") }}
                         </p>
                     </div>
                 </div>
@@ -329,7 +303,7 @@
                             class="font-medium text-(--md-sys-color-primary)"
                         >
                             {{
-                                t("pages.volunteer.scoreHint", {
+                                t("pages.gaokao.scoreHint", {
                                     score: userScore,
                                 })
                             }}
@@ -339,7 +313,7 @@
                             class="font-medium text-(--md-sys-color-primary)"
                         >
                             {{
-                                t("pages.volunteer.rankingHint", {
+                                t("pages.gaokao.rankingHint", {
                                     ranking: userRanking,
                                 })
                             }}
@@ -364,7 +338,7 @@
                                                   : 'w-[30%]'
                                         "
                                     >
-                                        {{ t("pages.volunteer.table.major") }}
+                                        {{ t("pages.gaokao.table.major") }}
                                     </th>
                                     <th
                                         class="cursor-pointer select-none px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap transition-colors hover:text-(--md-sys-color-primary)"
@@ -379,7 +353,7 @@
                                         @click="toggleSort('maxScore')"
                                     >
                                         {{
-                                            t("pages.volunteer.table.maxScore")
+                                            t("pages.gaokao.table.maxScore")
                                         }}
                                         <span
                                             v-if="sortKey === 'maxScore'"
@@ -402,7 +376,7 @@
                                         @click="toggleSort('minScore')"
                                     >
                                         {{
-                                            t("pages.volunteer.table.minScore")
+                                            t("pages.gaokao.table.minScore")
                                         }}
                                         <span
                                             v-if="sortKey === 'minScore'"
@@ -418,7 +392,7 @@
                                     >
                                         {{
                                             t(
-                                                "pages.volunteer.table.maxRanking",
+                                                "pages.gaokao.table.maxRanking",
                                             )
                                         }}
                                     </th>
@@ -428,7 +402,7 @@
                                     >
                                         {{
                                             t(
-                                                "pages.volunteer.table.minRanking",
+                                                "pages.gaokao.table.minRanking",
                                             )
                                         }}
                                     </th>
@@ -441,24 +415,24 @@
                                                 : 'w-[14%]'
                                         "
                                     >
-                                        {{ t("pages.volunteer.table.match") }}
+                                        {{ t("pages.gaokao.table.match") }}
                                     </th>
                                     <th
                                         class="w-[10%] px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
                                         {{
-                                            t("pages.volunteer.table.category")
+                                            t("pages.gaokao.table.category")
                                         }}
                                     </th>
                                     <th
                                         class="w-[10%] px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
-                                        {{ t("pages.volunteer.table.batch") }}
+                                        {{ t("pages.gaokao.table.batch") }}
                                     </th>
                                     <th
                                         class="px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
-                                        {{ t("pages.volunteer.table.notes") }}
+                                        {{ t("pages.gaokao.table.notes") }}
                                     </th>
                                 </tr>
                             </thead>
@@ -533,33 +507,33 @@
                                     <th
                                         class="w-[30%] px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
-                                        {{ t("pages.volunteer.table.major") }}
+                                        {{ t("pages.gaokao.table.major") }}
                                     </th>
                                     <th
                                         class="w-[12%] px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
                                         {{
-                                            t("pages.volunteer.table.majorCode")
+                                            t("pages.gaokao.table.majorCode")
                                         }}
                                     </th>
                                     <th
                                         class="w-[22%] px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
                                         {{
-                                            t("pages.volunteer.table.planType")
+                                            t("pages.gaokao.table.planType")
                                         }}
                                     </th>
                                     <th
                                         class="w-[12%] px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
                                         {{
-                                            t("pages.volunteer.table.planCount")
+                                            t("pages.gaokao.table.planCount")
                                         }}
                                     </th>
                                     <th
                                         class="px-3 py-2 text-[11px] font-medium tracking-[0.14em] whitespace-nowrap text-(--md-sys-color-on-surface-variant)"
                                     >
-                                        {{ t("pages.volunteer.table.notes") }}
+                                        {{ t("pages.gaokao.table.notes") }}
                                     </th>
                                 </tr>
                             </thead>
@@ -644,7 +618,7 @@
                                         class="text-xs text-(--md-sys-color-on-surface-variant)"
                                     >
                                         {{
-                                            t("pages.volunteer.table.maxScore")
+                                            t("pages.gaokao.table.maxScore")
                                         }}
                                     </p>
                                     <p
@@ -658,7 +632,7 @@
                                         class="text-xs text-(--md-sys-color-on-surface-variant)"
                                     >
                                         {{
-                                            t("pages.volunteer.table.minScore")
+                                            t("pages.gaokao.table.minScore")
                                         }}
                                     </p>
                                     <p
@@ -674,7 +648,7 @@
                                         >
                                             {{
                                                 t(
-                                                    "pages.volunteer.table.maxRanking",
+                                                    "pages.gaokao.table.maxRanking",
                                                 )
                                             }}
                                         </p>
@@ -690,7 +664,7 @@
                                         >
                                             {{
                                                 t(
-                                                    "pages.volunteer.table.minRanking",
+                                                    "pages.gaokao.table.minRanking",
                                                 )
                                             }}
                                         </p>
@@ -730,7 +704,7 @@
                                         class="text-xs text-(--md-sys-color-on-surface-variant)"
                                     >
                                         {{
-                                            t("pages.volunteer.table.planCount")
+                                            t("pages.gaokao.table.planCount")
                                         }}
                                     </p>
                                     <p
@@ -802,11 +776,11 @@ const route = useRoute();
 const router = useRouter();
 const { t } = useI18n();
 usePageMeta({
-    titleKey: "pages.volunteer.title",
-    descriptionKey: "pages.volunteer.meta.description",
+    titleKey: "pages.gaokao.title",
+    descriptionKey: "pages.gaokao.meta.description",
     keywords:
         "江西财经大学录取分数,江财志愿填报,高考志愿查询,江财招生,江财录取位次,江西财经大学分数线",
-    canonicalPath: "/volunteer",
+    canonicalPath: "/gaokao",
     schema: {
         "@type": "WebApplication",
         applicationCategory: "EducationalApplication",
@@ -851,24 +825,18 @@ const rankingCacheLoading = ref(false);
 
 const dataSources = computed<{ label: string; value: DataSource }[]>(() => [
     {
-        label: t("pages.volunteer.dataSource.zsjy"),
+        label: t("pages.gaokao.dataSource.zsjy"),
         value: "zsjy",
     },
     {
-        label: t("pages.volunteer.dataSource.ranking"),
+        label: t("pages.gaokao.dataSource.ranking"),
         value: "ranking",
     },
     {
-        label: t("pages.volunteer.dataSource.plan"),
+        label: t("pages.gaokao.dataSource.plan"),
         value: "plan",
     },
 ]);
-
-const currentSourceDescription = computed(() => {
-    if (dataSource.value === "ranking")
-        return t("pages.volunteer.dataSource.rankingDescription");
-    return "";
-});
 
 const availablePlanTypes = computed(() => {
     const base = planFilterOptions.value["F"] || [];
@@ -1065,7 +1033,7 @@ const paginatedResults = computed(() =>
 );
 
 const summaryText = computed(() =>
-    t("pages.volunteer.summary", { count: results.value.length }),
+    t("pages.gaokao.summary", { count: results.value.length }),
 );
 
 const matchBadgeClass = (row: EnrollRow) => {
@@ -1094,7 +1062,7 @@ const matchLabel = (row: EnrollRow): string => {
         const r = Number(userRanking.value);
         const diffNum = s === "safe" ? bestRank - r : worstRank - r;
         const diffStr = diffNum > 0 ? `+${diffNum}` : `${diffNum}`;
-        return `${t(`pages.volunteer.status.${s}`)} ${diffStr}`;
+        return `${t(`pages.gaokao.status.${s}`)} ${diffStr}`;
     }
     if (userScore.value === undefined || userScore.value === "") return "";
     const s = getMatchStatus(row);
@@ -1103,7 +1071,7 @@ const matchLabel = (row: EnrollRow): string => {
     const score = Number(userScore.value);
     const diffNum = s === "safe" ? score - maxS : score - minS;
     const diffStr = diffNum > 0 ? `+${diffNum}` : `${diffNum}`;
-    return `${t(`pages.volunteer.status.${s}`)} ${diffStr}`;
+    return `${t(`pages.gaokao.status.${s}`)} ${diffStr}`;
 };
 
 const fetchConfig = async () => {
@@ -1141,7 +1109,7 @@ const fetchConfig = async () => {
     } catch (err) {
         console.error(err);
         configError.value =
-            (err as Error).message || t("pages.volunteer.fetchError");
+            (err as Error).message || t("pages.gaokao.fetchError");
     } finally {
         configLoading.value = false;
     }
@@ -1253,7 +1221,7 @@ const queryData = async () => {
     } catch (err) {
         console.error(err);
         dataError.value =
-            (err as Error).message || t("pages.volunteer.fetchError");
+            (err as Error).message || t("pages.gaokao.fetchError");
     } finally {
         dataLoading.value = false;
     }
