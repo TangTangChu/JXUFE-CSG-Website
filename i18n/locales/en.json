@@ -13,6 +13,7 @@
         "timeline": "Timeline",
         "ctf": "World CTF Events",
         "gaokao": "Gaokao Reference",
+        "tools": "Toolbox",
         "aboutChildren": {
             "index": "Guild Overview",
             "leaders": "Past Leaders",
@@ -163,6 +164,178 @@
                 "phone": "Phone",
                 "wechat": "WeChat",
                 "wechatAlt": "Admissions Office"
+            }
+        },
+        "tools": {
+            "title": "Toolbox",
+            "backToList": "Back to toolbox",
+            "meta": {
+                "description": "Toolbox of the Cybersecurity Guild of JXUFE: encoding, hash, regex, JWT inspect, timestamp conversion, and Google search syntax."
+            },
+            "common": {
+                "copy": "Copy",
+                "copied": "Copied!",
+                "clear": "Clear"
+            },
+            "encoding": {
+                "title": "Encode / Decode",
+                "description": "Convert among Base64, URL, Hex, Unicode, and HTML entities.",
+                "input": "Input",
+                "inputPlaceholder": "Paste text to transform…",
+                "output": "Output",
+                "outputPlaceholder": "Result appears here",
+                "actions": {
+                    "encode": "Encode",
+                    "decode": "Decode",
+                    "swap": "Swap & reverse"
+                },
+                "errors": {
+                    "failed": "Conversion failed. Check the input format."
+                }
+            },
+            "hash": {
+                "title": "Hash Calculator",
+                "description": "Compute MD5 / SHA digests for text or files.",
+                "input": "Text",
+                "inputPlaceholder": "Enter text to hash…",
+                "file": "File",
+                "output": "Digest",
+                "outputPlaceholder": "Hash result appears here",
+                "sources": {
+                    "text": "Text",
+                    "file": "File"
+                },
+                "actions": {
+                    "compute": "Compute"
+                },
+                "errors": {
+                    "noFile": "Please choose a file first",
+                    "failed": "Hashing failed"
+                }
+            },
+            "regex": {
+                "title": "Regex Lab",
+                "description": "Write regular expressions and highlight matches and capture groups live.",
+                "pattern": "Pattern",
+                "patternPlaceholder": "e.g. (\\w+){'@'}(\\w+\\.\\w+)",
+                "flags": "Flags",
+                "testText": "Test text",
+                "testTextPlaceholder": "Paste text to match…",
+                "preview": "Highlight preview",
+                "previewEmpty": "Preview appears after you enter test text",
+                "matchCount": "{count} match(es)",
+                "groups": "Groups"
+            },
+            "jwt": {
+                "title": "JWT Inspector",
+                "description": "Decode JWT claims, time status, edit/rebuild, and alg=none helpers.",
+                "input": "JWT",
+                "inputPlaceholder": "Paste a token like eyJ…",
+                "header": "Header",
+                "payload": "Payload",
+                "signature": "Signature",
+                "claims": "Claims",
+                "claimKey": "Key",
+                "claimValue": "Value",
+                "rawParts": "Raw parts",
+                "actions": {
+                    "edit": "Edit",
+                    "cancelEdit": "Cancel edit",
+                    "rebuild": "Rebuild token",
+                    "rebuildAlgNone": "Rebuild as alg=none",
+                    "algNone": "alg=none",
+                    "copySigningInput": "Copy signing input"
+                },
+                "status": {
+                    "expired": "Expired",
+                    "valid": "Not expired",
+                    "notYet": "Not yet valid",
+                    "active": "Active",
+                    "issued": "Issued"
+                },
+                "errors": {
+                    "invalidFormat": "Not a valid three-part JWT",
+                    "invalidBase64": "Base64URL decode failed",
+                    "notJson": "Could not parse as JSON",
+                    "invalidHeaderJson": "Header is not valid JSON",
+                    "invalidPayloadJson": "Payload is not valid JSON"
+                },
+                "notes": {
+                    "algNone": "Algorithm is none"
+                }
+            },
+            "timestamp": {
+                "title": "Timestamp Converter",
+                "description": "Convert between Unix timestamps and local / UTC / ISO times.",
+                "input": "Timestamp or date string",
+                "inputPlaceholder": "e.g. 1710000000 or 2024-01-01T00:00:00Z",
+                "units": {
+                    "auto": "Auto",
+                    "s": "Seconds",
+                    "ms": "Milliseconds"
+                },
+                "actions": {
+                    "now": "Now"
+                },
+                "views": {
+                    "unixSeconds": "Unix seconds",
+                    "unixMilliseconds": "Unix milliseconds",
+                    "iso": "ISO 8601",
+                    "local": "Local time",
+                    "utc": "UTC (RFC 1123 / RFC 7231)"
+                },
+                "errors": {
+                    "invalid": "Could not parse this time"
+                }
+            },
+            "googleSearchSyntax": {
+                "title": "Google Search Syntax Generator",
+                "description": "Visually build advanced Google search syntax without memorizing complex operators.",
+                "baseQuery": "Search query",
+                "baseQueryPlaceholder": "Enter search keywords...",
+                "filters": {
+                    "title": "Filters",
+                    "site": "Search within site",
+                    "intitle": "Title contains",
+                    "inurl": "URL contains",
+                    "intext": "Body contains",
+                    "filetype": "File type",
+                    "before": "Before date",
+                    "after": "After date",
+                    "exclude": "Exclude keywords",
+                    "exactPhase": "Exact phrase"
+                },
+                "placeholders": {
+                    "site": "e.g. jxufe.edu.cn",
+                    "intitle": "e.g. cybersecurity",
+                    "inurl": "e.g. login",
+                    "intext": "e.g. vulnerability",
+                    "filetype": "Select file type...",
+                    "before": "e.g. 2025-01-01",
+                    "after": "e.g. 2024-01-01",
+                    "exclude": "Keywords to exclude",
+                    "exactPhase": "Exact phrase to match"
+                },
+                "actions": {
+                    "addFilter": "Add filter",
+                    "removeFilter": "Remove",
+                    "generate": "Generate",
+                    "copy": "Copy",
+                    "copied": "Copied!",
+                    "clear": "Clear"
+                },
+                "result": {
+                    "title": "Generated syntax",
+                    "empty": "Add filters or enter search content to see the generated syntax here"
+                },
+                "filetypes": {
+                    "pdf": "PDF Document",
+                    "doc": "Word Document",
+                    "xls": "Excel Spreadsheet",
+                    "ppt": "PowerPoint",
+                    "txt": "Text File",
+                    "html": "HTML Page"
+                }
             }
         },
         "privacy": {

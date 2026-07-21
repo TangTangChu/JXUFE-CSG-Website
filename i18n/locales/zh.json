@@ -19,7 +19,8 @@
             "excellent": "优秀成员",
             "teacher": "社团指导老师"
         },
-        "gaokao": "高考志愿填报参考"
+        "gaokao": "高考志愿填报参考",
+        "tools": "工具箱"
     },
     "pages": {
         "timeline": {
@@ -163,6 +164,178 @@
                 "phone": "咨询电话",
                 "wechat": "微信公众号",
                 "wechatAlt": "招生办公众号"
+            }
+        },
+        "tools": {
+            "title": "工具箱",
+            "backToList": "返回工具箱",
+            "meta": {
+                "description": "江西财经大学网络安全协会工具集，提供编码解码、Hash、正则、JWT 解析、时间戳转换与 Google 搜索语法生成等实用工具。"
+            },
+            "common": {
+                "copy": "复制",
+                "copied": "已复制！",
+                "clear": "清空"
+            },
+            "encoding": {
+                "title": "编码 / 解码",
+                "description": "Base64、URL、Hex、Unicode、HTML 实体互转。",
+                "input": "输入",
+                "inputPlaceholder": "粘贴待处理文本…",
+                "output": "输出",
+                "outputPlaceholder": "结果将显示在这里",
+                "actions": {
+                    "encode": "编码",
+                    "decode": "解码",
+                    "swap": "交换并反向"
+                },
+                "errors": {
+                    "failed": "转换失败，请检查输入格式"
+                }
+            },
+            "hash": {
+                "title": "Hash 计算器",
+                "description": "计算文本或文件的 MD5 / SHA 系列摘要。",
+                "input": "文本",
+                "inputPlaceholder": "输入要计算摘要的文本…",
+                "file": "文件",
+                "output": "摘要",
+                "outputPlaceholder": "计算结果将显示在这里",
+                "sources": {
+                    "text": "文本",
+                    "file": "文件"
+                },
+                "actions": {
+                    "compute": "计算"
+                },
+                "errors": {
+                    "noFile": "请先选择文件",
+                    "failed": "计算失败"
+                }
+            },
+            "regex": {
+                "title": "正则实验室",
+                "description": "编写正则表达式并实时高亮匹配结果与捕获组。",
+                "pattern": "正则表达式",
+                "patternPlaceholder": "例如: (\\w+){'@'}(\\w+\\.\\w+)",
+                "flags": "标志",
+                "testText": "测试文本",
+                "testTextPlaceholder": "在此粘贴要匹配的文本…",
+                "preview": "高亮预览",
+                "previewEmpty": "输入测试文本后显示预览",
+                "matchCount": "{count} 处匹配",
+                "groups": "捕获组"
+            },
+            "jwt": {
+                "title": "JWT 解析器",
+                "description": "解析 JWT、声明表、时间状态，支持编辑重建与 alg=none。",
+                "input": "JWT",
+                "inputPlaceholder": "粘贴 eyJ… 格式的令牌",
+                "header": "Header",
+                "payload": "Payload",
+                "signature": "Signature",
+                "claims": "Claims",
+                "claimKey": "字段",
+                "claimValue": "值",
+                "rawParts": "原始分段",
+                "actions": {
+                    "edit": "编辑",
+                    "cancelEdit": "取消编辑",
+                    "rebuild": "重建令牌",
+                    "rebuildAlgNone": "重建为 alg=none",
+                    "algNone": "一键 alg=none",
+                    "copySigningInput": "复制签名输入"
+                },
+                "status": {
+                    "expired": "已过期",
+                    "valid": "未过期",
+                    "notYet": "未生效",
+                    "active": "已生效",
+                    "issued": "已签发"
+                },
+                "errors": {
+                    "invalidFormat": "不是有效的 JWT 三段式格式",
+                    "invalidBase64": "Base64URL 解码失败",
+                    "notJson": "无法解析为 JSON",
+                    "invalidHeaderJson": "Header 不是合法 JSON",
+                    "invalidPayloadJson": "Payload 不是合法 JSON"
+                },
+                "notes": {
+                    "algNone": "算法为 none"
+                }
+            },
+            "timestamp": {
+                "title": "时间戳转换",
+                "description": "Unix 时间戳与本地 / UTC / ISO 时间互转。",
+                "input": "时间戳或日期字符串",
+                "inputPlaceholder": "例如: 1710000000 或 2024-01-01T00:00:00Z",
+                "units": {
+                    "auto": "自动",
+                    "s": "秒",
+                    "ms": "毫秒"
+                },
+                "actions": {
+                    "now": "当前时间"
+                },
+                "views": {
+                    "unixSeconds": "Unix 秒",
+                    "unixMilliseconds": "Unix 毫秒",
+                    "iso": "ISO 8601",
+                    "local": "本地时间",
+                    "utc": "UTC（RFC 1123 / RFC 7231）"
+                },
+                "errors": {
+                    "invalid": "无法解析该时间"
+                }
+            },
+            "googleSearchSyntax": {
+                "title": "Google 搜索语法生成器",
+                "description": "通过可视化界面快速构建 Google 高级搜索语法，无需记忆复杂操作符。",
+                "baseQuery": "搜索内容",
+                "baseQueryPlaceholder": "输入要搜索的关键词...",
+                "filters": {
+                    "title": "筛选条件",
+                    "site": "站点内搜索",
+                    "intitle": "标题包含",
+                    "inurl": "网址包含",
+                    "intext": "正文包含",
+                    "filetype": "文件类型",
+                    "before": "在此日期前",
+                    "after": "在此日期后",
+                    "exclude": "排除关键词",
+                    "exactPhase": "精确匹配短语"
+                },
+                "placeholders": {
+                    "site": "例如: jxufe.edu.cn",
+                    "intitle": "例如: 网络安全",
+                    "inurl": "例如: login",
+                    "intext": "例如: 漏洞",
+                    "filetype": "选择文件类型...",
+                    "before": "例如: 2025-01-01",
+                    "after": "例如: 2024-01-01",
+                    "exclude": "要排除的关键词",
+                    "exactPhase": "精确匹配的完整短语"
+                },
+                "actions": {
+                    "addFilter": "添加条件",
+                    "removeFilter": "移除",
+                    "generate": "生成语法",
+                    "copy": "复制",
+                    "copied": "已复制！",
+                    "clear": "清空"
+                },
+                "result": {
+                    "title": "生成的语法",
+                    "empty": "添加筛选条件或输入搜索内容后，生成的语法将在这里显示"
+                },
+                "filetypes": {
+                    "pdf": "PDF 文档",
+                    "doc": "Word 文档",
+                    "xls": "Excel 表格",
+                    "ppt": "PowerPoint",
+                    "txt": "文本文件",
+                    "html": "HTML 页面"
+                }
             }
         },
         "privacy": {

@@ -13,6 +13,7 @@
         "timeline": "タイムライン",
         "ctf": "CTF イベント",
         "gaokao": "高考参考",
+        "tools": "ツールボックス",
         "aboutChildren": {
             "index": "ギルド概要",
             "leaders": "歴代責任者",
@@ -103,6 +104,178 @@
                 "phone": "電話",
                 "wechat": "WeChat公式",
                 "wechatAlt": "入試事務室"
+            }
+        },
+        "tools": {
+            "title": "ツールボックス",
+            "backToList": "ツールボックスに戻る",
+            "meta": {
+                "description": "江西財経大学サイバーセキュリティギルドのツール集。エンコード、ハッシュ、正規表現、JWT解析、タイムスタンプ変換、Google検索構文などを提供します。"
+            },
+            "common": {
+                "copy": "コピー",
+                "copied": "コピーしました！",
+                "clear": "クリア"
+            },
+            "encoding": {
+                "title": "エンコード / デコード",
+                "description": "Base64・URL・Hex・Unicode・HTMLエンティティを相互変換。",
+                "input": "入力",
+                "inputPlaceholder": "変換するテキストを貼り付け…",
+                "output": "出力",
+                "outputPlaceholder": "結果がここに表示されます",
+                "actions": {
+                    "encode": "エンコード",
+                    "decode": "デコード",
+                    "swap": "入れ替えて反転"
+                },
+                "errors": {
+                    "failed": "変換に失敗しました。入力形式を確認してください"
+                }
+            },
+            "hash": {
+                "title": "ハッシュ計算機",
+                "description": "テキストまたはファイルの MD5 / SHA ダイジェストを計算します。",
+                "input": "テキスト",
+                "inputPlaceholder": "ハッシュするテキストを入力…",
+                "file": "ファイル",
+                "output": "ダイジェスト",
+                "outputPlaceholder": "結果がここに表示されます",
+                "sources": {
+                    "text": "テキスト",
+                    "file": "ファイル"
+                },
+                "actions": {
+                    "compute": "計算"
+                },
+                "errors": {
+                    "noFile": "ファイルを選択してください",
+                    "failed": "計算に失敗しました"
+                }
+            },
+            "regex": {
+                "title": "正規表現ラボ",
+                "description": "正規表現を書き、マッチとキャプチャグループをリアルタイムでハイライトします。",
+                "pattern": "パターン",
+                "patternPlaceholder": "例: (\\w+){'@'}(\\w+\\.\\w+)",
+                "flags": "フラグ",
+                "testText": "テストテキスト",
+                "testTextPlaceholder": "マッチさせるテキストを貼り付け…",
+                "preview": "ハイライトプレビュー",
+                "previewEmpty": "テストテキストを入力すると表示されます",
+                "matchCount": "{count} 件のマッチ",
+                "groups": "グループ"
+            },
+            "jwt": {
+                "title": "JWT パーサー",
+                "description": "JWT のクレーム・時刻状態を解析し、編集再構築と alg=none を支援。",
+                "input": "JWT",
+                "inputPlaceholder": "eyJ… 形式のトークンを貼り付け",
+                "header": "Header",
+                "payload": "Payload",
+                "signature": "Signature",
+                "claims": "Claims",
+                "claimKey": "キー",
+                "claimValue": "値",
+                "rawParts": "生セグメント",
+                "actions": {
+                    "edit": "編集",
+                    "cancelEdit": "編集をやめる",
+                    "rebuild": "トークンを再構築",
+                    "rebuildAlgNone": "alg=none で再構築",
+                    "algNone": "alg=none",
+                    "copySigningInput": "署名入力をコピー"
+                },
+                "status": {
+                    "expired": "期限切れ",
+                    "valid": "有効",
+                    "notYet": "未有効",
+                    "active": "有効中",
+                    "issued": "発行済み"
+                },
+                "errors": {
+                    "invalidFormat": "有効な 3 部構成の JWT ではありません",
+                    "invalidBase64": "Base64URL のデコードに失敗しました",
+                    "notJson": "JSON として解析できません",
+                    "invalidHeaderJson": "Header が有効な JSON ではありません",
+                    "invalidPayloadJson": "Payload が有効な JSON ではありません"
+                },
+                "notes": {
+                    "algNone": "アルゴリズムが none"
+                }
+            },
+            "timestamp": {
+                "title": "タイムスタンプ変換",
+                "description": "Unix タイムスタンプとローカル / UTC / ISO 時刻を相互変換します。",
+                "input": "タイムスタンプまたは日付文字列",
+                "inputPlaceholder": "例: 1710000000 または 2024-01-01T00:00:00Z",
+                "units": {
+                    "auto": "自動",
+                    "s": "秒",
+                    "ms": "ミリ秒"
+                },
+                "actions": {
+                    "now": "現在時刻"
+                },
+                "views": {
+                    "unixSeconds": "Unix 秒",
+                    "unixMilliseconds": "Unix ミリ秒",
+                    "iso": "ISO 8601",
+                    "local": "ローカル時刻",
+                    "utc": "UTC（RFC 1123 / RFC 7231）"
+                },
+                "errors": {
+                    "invalid": "この時刻を解析できません"
+                }
+            },
+            "googleSearchSyntax": {
+                "title": "Google検索構文ジェネレーター",
+                "description": "複雑な演算子を覚えることなく、視覚的にGoogleの高度な検索構文を構築できます。",
+                "baseQuery": "検索内容",
+                "baseQueryPlaceholder": "検索キーワードを入力...",
+                "filters": {
+                    "title": "絞り込み条件",
+                    "site": "サイト内検索",
+                    "intitle": "タイトルに含む",
+                    "inurl": "URLに含む",
+                    "intext": "本文に含む",
+                    "filetype": "ファイル形式",
+                    "before": "日付以前",
+                    "after": "日付以降",
+                    "exclude": "除外キーワード",
+                    "exactPhase": "完全一致フレーズ"
+                },
+                "placeholders": {
+                    "site": "例: jxufe.edu.cn",
+                    "intitle": "例: セキュリティ",
+                    "inurl": "例: login",
+                    "intext": "例: 脆弱性",
+                    "filetype": "ファイル形式を選択...",
+                    "before": "例: 2025-01-01",
+                    "after": "例: 2024-01-01",
+                    "exclude": "除外するキーワード",
+                    "exactPhase": "完全一致するフレーズ"
+                },
+                "actions": {
+                    "addFilter": "条件を追加",
+                    "removeFilter": "削除",
+                    "generate": "構文を生成",
+                    "copy": "コピー",
+                    "copied": "コピーしました！",
+                    "clear": "クリア"
+                },
+                "result": {
+                    "title": "生成された構文",
+                    "empty": "絞り込み条件を追加するか検索内容を入力すると、生成された構文がここに表示されます"
+                },
+                "filetypes": {
+                    "pdf": "PDFドキュメント",
+                    "doc": "Word文書",
+                    "xls": "Excelスプレッドシート",
+                    "ppt": "PowerPoint",
+                    "txt": "テキストファイル",
+                    "html": "HTMLページ"
+                }
             }
         },
         "privacy": {

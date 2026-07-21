@@ -8,6 +8,7 @@ import {
     BookOpenIcon,
     TrophyIcon,
     AcademicCapIcon,
+    WrenchScrewdriverIcon,
 } from "@heroicons/vue/24/outline";
 export interface NavChildLink {
     path: string;
@@ -83,6 +84,12 @@ export const useNavLinks = (): NavLink[] => {
             label: "nav.gaokao",
             alwaysInMore: true,
             icon: AcademicCapIcon,
+        },
+        {
+            path: "/tools",
+            label: "nav.tools",
+            alwaysInMore: true,
+            icon: WrenchScrewdriverIcon,
         },
     ];
 };

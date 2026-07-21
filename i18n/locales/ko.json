@@ -13,6 +13,7 @@
         "timeline": "타임라인",
         "ctf": "CTF 대회",
         "gaokao": "가오카오 참고",
+        "tools": "도구함",
         "aboutChildren": {
             "index": "길드 개요",
             "leaders": "역대 리더",
@@ -103,6 +104,178 @@
                 "phone": "전화",
                 "wechat": "위챗 공식계정",
                 "wechatAlt": "입학사무실"
+            }
+        },
+        "tools": {
+            "title": "도구함",
+            "backToList": "도구함으로 돌아가기",
+            "meta": {
+                "description": "장시 재경대학교 사이버보안 길드 도구 모음. 인코딩, 해시, 정규식, JWT 파싱, 타임스탬프 변환, Google 검색 구문 등을 제공합니다."
+            },
+            "common": {
+                "copy": "복사",
+                "copied": "복사됨!",
+                "clear": "지우기"
+            },
+            "encoding": {
+                "title": "인코딩 / 디코딩",
+                "description": "Base64, URL, Hex, Unicode, HTML 엔티티 상호 변환.",
+                "input": "입력",
+                "inputPlaceholder": "변환할 텍스트를 붙여넣기…",
+                "output": "출력",
+                "outputPlaceholder": "결과가 여기에 표시됩니다",
+                "actions": {
+                    "encode": "인코딩",
+                    "decode": "디코딩",
+                    "swap": "교환 후 반전"
+                },
+                "errors": {
+                    "failed": "변환 실패. 입력 형식을 확인하세요"
+                }
+            },
+            "hash": {
+                "title": "해시 계산기",
+                "description": "텍스트 또는 파일의 MD5 / SHA 요약을 계산합니다.",
+                "input": "텍스트",
+                "inputPlaceholder": "해시할 텍스트 입력…",
+                "file": "파일",
+                "output": "요약",
+                "outputPlaceholder": "결과가 여기에 표시됩니다",
+                "sources": {
+                    "text": "텍스트",
+                    "file": "파일"
+                },
+                "actions": {
+                    "compute": "계산"
+                },
+                "errors": {
+                    "noFile": "파일을 먼저 선택하세요",
+                    "failed": "계산 실패"
+                }
+            },
+            "regex": {
+                "title": "정규식 랩",
+                "description": "정규식을 작성하고 매치와 캡처 그룹을 실시간으로 강조합니다.",
+                "pattern": "패턴",
+                "patternPlaceholder": "예: (\\w+){'@'}(\\w+\\.\\w+)",
+                "flags": "플래그",
+                "testText": "테스트 텍스트",
+                "testTextPlaceholder": "매치할 텍스트를 붙여넣기…",
+                "preview": "하이라이트 미리보기",
+                "previewEmpty": "테스트 텍스트를 입력하면 표시됩니다",
+                "matchCount": "매치 {count}곳",
+                "groups": "그룹"
+            },
+            "jwt": {
+                "title": "JWT 파서",
+                "description": "JWT 클레임·시간 상태 파싱, 편집 재구성, alg=none 지원.",
+                "input": "JWT",
+                "inputPlaceholder": "eyJ… 형식 토큰을 붙여넣기",
+                "header": "Header",
+                "payload": "Payload",
+                "signature": "Signature",
+                "claims": "Claims",
+                "claimKey": "키",
+                "claimValue": "값",
+                "rawParts": "원본 세그먼트",
+                "actions": {
+                    "edit": "편집",
+                    "cancelEdit": "편집 취소",
+                    "rebuild": "토큰 재구성",
+                    "rebuildAlgNone": "alg=none으로 재구성",
+                    "algNone": "alg=none",
+                    "copySigningInput": "서명 입력 복사"
+                },
+                "status": {
+                    "expired": "만료됨",
+                    "valid": "유효",
+                    "notYet": "아직 유효하지 않음",
+                    "active": "유효 중",
+                    "issued": "발급됨"
+                },
+                "errors": {
+                    "invalidFormat": "유효한 3단 JWT 형식이 아닙니다",
+                    "invalidBase64": "Base64URL 디코딩 실패",
+                    "notJson": "JSON으로 파싱할 수 없습니다",
+                    "invalidHeaderJson": "Header가 유효한 JSON이 아닙니다",
+                    "invalidPayloadJson": "Payload가 유효한 JSON이 아닙니다"
+                },
+                "notes": {
+                    "algNone": "알고리즘이 none"
+                }
+            },
+            "timestamp": {
+                "title": "타임스탬프 변환",
+                "description": "Unix 타임스탬프와 로컬 / UTC / ISO 시간을 상호 변환합니다.",
+                "input": "타임스탬프 또는 날짜 문자열",
+                "inputPlaceholder": "예: 1710000000 또는 2024-01-01T00:00:00Z",
+                "units": {
+                    "auto": "자동",
+                    "s": "초",
+                    "ms": "밀리초"
+                },
+                "actions": {
+                    "now": "현재 시간"
+                },
+                "views": {
+                    "unixSeconds": "Unix 초",
+                    "unixMilliseconds": "Unix 밀리초",
+                    "iso": "ISO 8601",
+                    "local": "로컬 시간",
+                    "utc": "UTC (RFC 1123 / RFC 7231)"
+                },
+                "errors": {
+                    "invalid": "이 시간을 파싱할 수 없습니다"
+                }
+            },
+            "googleSearchSyntax": {
+                "title": "Google 검색 구문 생성기",
+                "description": "복잡한 연산자를 외우지 않고도 시각적으로 Google 고급 검색 구문을 구축할 수 있습니다.",
+                "baseQuery": "검색 내용",
+                "baseQueryPlaceholder": "검색 키워드 입력...",
+                "filters": {
+                    "title": "필터 조건",
+                    "site": "사이트 내 검색",
+                    "intitle": "제목에 포함",
+                    "inurl": "URL에 포함",
+                    "intext": "본문에 포함",
+                    "filetype": "파일 형식",
+                    "before": "이 날짜 이전",
+                    "after": "이 날짜 이후",
+                    "exclude": "제외 키워드",
+                    "exactPhase": "정확히 일치하는 구문"
+                },
+                "placeholders": {
+                    "site": "예: jxufe.edu.cn",
+                    "intitle": "예: 보안",
+                    "inurl": "예: login",
+                    "intext": "예: 취약점",
+                    "filetype": "파일 형식 선택...",
+                    "before": "예: 2025-01-01",
+                    "after": "예: 2024-01-01",
+                    "exclude": "제외할 키워드",
+                    "exactPhase": "정확히 일치하는 구문"
+                },
+                "actions": {
+                    "addFilter": "조건 추가",
+                    "removeFilter": "제거",
+                    "generate": "구문 생성",
+                    "copy": "복사",
+                    "copied": "복사됨!",
+                    "clear": "지우기"
+                },
+                "result": {
+                    "title": "생성된 구문",
+                    "empty": "필터 조건을 추가하거나 검색 내용을 입력하면 생성된 구문이 여기에 표시됩니다"
+                },
+                "filetypes": {
+                    "pdf": "PDF 문서",
+                    "doc": "Word 문서",
+                    "xls": "Excel 스프레드시트",
+                    "ppt": "PowerPoint",
+                    "txt": "텍스트 파일",
+                    "html": "HTML 페이지"
+                }
             }
         },
         "privacy": {
