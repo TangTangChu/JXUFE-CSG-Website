@@ -15,14 +15,22 @@ import CalendarCard from "@/components/sidebars/CalendarCard.vue";
 import NoticeCard from "@/components/sidebars/NoticeCard.vue";
 import WikiTree from "@/components/sidebars/WikiTree.vue";
 
-const { t } = useI18n();
+const { t, locale, locales } = useI18n();
 const { notificationRef } = useNotification();
 const { titleKey, displayTitle, displaySuffix } = usePageTitle();
+
+const htmlLang = computed(() => {
+    const current = (locales.value as { code: string; iso: string }[]).find(
+        (l) => l.code === locale.value,
+    );
+    return current?.iso ?? "zh-CN";
+});
 
 useHead(() => ({
     title: displayTitle.value
         ? `${displayTitle.value} - ${t("meta.fullName")}${displaySuffix.value}`
         : t("pages.home.meta.title"),
+    htmlAttrs: { lang: htmlLang.value },
 }));
 
 const hasPageTitle = computed(() => !!titleKey.value || !!displayTitle.value);

@@ -118,17 +118,22 @@ export async function fetchCmsData<T>(
         body?: unknown;
         signal?: AbortSignal;
         baseURL?: string;
+        /** SSR 透传的入站 UA，跨 await 调用时须由调用方在同步阶段取好传入 */
+        ua?: string;
     } = {},
 ): Promise<CmsResult<T>> {
-    // useRuntimeConfig 依赖请求上下文；跨 await 调用时须由调用方提前传入 baseURL
+    // 依赖请求上下文，跨 await 调用时须由调用方提前传入
     const baseURL = options.baseURL ?? getApiBaseUrl();
     const method = options.method ?? "GET";
+    // 透传访客真实 UA，CSR 下浏览器请求自带
+    const ua = options.ua ?? getRequestUserAgent();
     const payload = await $fetch<unknown>(`${baseURL}${endpoint}`, {
         method,
         signal: options.signal,
         body: options.body !== undefined ? { data: options.body } : undefined,
         headers: {
             Accept: "application/json",
+            ...(ua ? { "User-Agent": ua } : {}),
             ...(method !== "GET" ? { "Content-Type": "application/json" } : {}),
         },
     });
