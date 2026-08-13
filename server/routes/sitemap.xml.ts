@@ -47,6 +47,17 @@ const STATIC_ROUTES: SitemapUrl[] = [
     { loc: "/about/members", changefreq: "monthly", priority: 0.7 },
     { loc: "/about/excellent", changefreq: "monthly", priority: 0.6 },
     { loc: "/privacy", changefreq: "yearly", priority: 0.2 },
+    { loc: "/tools", changefreq: "monthly", priority: 0.6 },
+    { loc: "/tools/jwt", changefreq: "monthly", priority: 0.5 },
+    { loc: "/tools/regex", changefreq: "monthly", priority: 0.5 },
+    { loc: "/tools/encoding", changefreq: "monthly", priority: 0.5 },
+    { loc: "/tools/timestamp", changefreq: "monthly", priority: 0.5 },
+    { loc: "/tools/hash", changefreq: "monthly", priority: 0.5 },
+    {
+        loc: "/tools/google-search-syntax",
+        changefreq: "monthly",
+        priority: 0.5,
+    },
 ];
 
 const escapeXml = (value: string): string =>
@@ -72,10 +83,14 @@ const toIsoDate = (input?: string): string | undefined => {
 
 const fetchEnvelope = async <T>(
     url: string,
+    ua?: string,
 ): Promise<ApiEnvelope<T> | null> => {
     try {
         const res = await $fetch<ApiEnvelope<T>>(url, {
-            headers: { Accept: "application/json" },
+            headers: {
+                Accept: "application/json",
+                ...(ua ? { "User-Agent": ua } : {}),
+            },
         });
         if (!res || typeof res !== "object" || res.code !== 200) return null;
         return res;
@@ -84,7 +99,10 @@ const fetchEnvelope = async <T>(
     }
 };
 
-const collectArchives = async (apiBase: string): Promise<SitemapUrl[]> => {
+const collectArchives = async (
+    apiBase: string,
+    ua?: string,
+): Promise<SitemapUrl[]> => {
     const result: SitemapUrl[] = [];
     const seen = new Set<string>();
     const pageSize = 100;
@@ -94,6 +112,7 @@ const collectArchives = async (apiBase: string): Promise<SitemapUrl[]> => {
     while (page <= totalPages) {
         const envelope = await fetchEnvelope<ArchiveEntry[]>(
             `${apiBase}/v1/contents?type_slug=archive&fields=publish_time&sort_order=desc&page=${page}&page_size=${pageSize}`,
+            ua,
         );
         if (!envelope) break;
 
@@ -120,9 +139,13 @@ const collectArchives = async (apiBase: string): Promise<SitemapUrl[]> => {
     return result;
 };
 
-const collectWikiPaths = async (apiBase: string): Promise<SitemapUrl[]> => {
+const collectWikiPaths = async (
+    apiBase: string,
+    ua?: string,
+): Promise<SitemapUrl[]> => {
     const envelope = await fetchEnvelope<WikiTreeNode>(
         `${apiBase}/v1/tree?root=wiki&depth=0`,
+        ua,
     );
     if (!envelope || !envelope.data) return [];
 
@@ -175,8 +198,8 @@ const renderSitemap = (siteUrl: string, urls: SitemapUrl[]): string => {
     return lines.join("\n");
 };
 
-export default defineCachedEventHandler(
-    async (event) => {
+const loadSitemap = cachedFunction(
+    async (ua?: string): Promise<string> => {
         const config = useRuntimeConfig();
         const apiBase =
             (config.public.apiBase as string) ||
@@ -186,19 +209,12 @@ export default defineCachedEventHandler(
         ).replace(/\/+$/, "");
 
         const [archives, wikis] = await Promise.all([
-            collectArchives(apiBase),
-            collectWikiPaths(apiBase),
+            collectArchives(apiBase, ua),
+            collectWikiPaths(apiBase, ua),
         ]);
 
         const urls = [...STATIC_ROUTES, ...archives, ...wikis];
-        const xml = renderSitemap(siteUrl, urls);
-
-        setResponseHeader(
-            event,
-            "Content-Type",
-            "application/xml; charset=utf-8",
-        );
-        return xml;
+        return renderSitemap(siteUrl, urls);
     },
     {
         maxAge: 60 * 30,
@@ -206,3 +222,13 @@ export default defineCachedEventHandler(
         getKey: () => "sitemap-xml",
     },
 );
+
+export default defineEventHandler(async (event) => {
+    // 缓存函数内请求头为空，UA 在外层读取后传入
+    const rawUa = event.node.req.headers["user-agent"];
+    const ua = Array.isArray(rawUa) ? rawUa[0] : rawUa;
+
+    const xml = await loadSitemap(ua);
+    setResponseHeader(event, "Content-Type", "application/xml; charset=utf-8");
+    return xml;
+});

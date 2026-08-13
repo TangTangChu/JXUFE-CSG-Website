@@ -280,21 +280,22 @@ const contentPath = computed(() => {
 const loadWikiPage = async (): Promise<WikiPagePayload> => {
     const lang = currentContentLang.value;
     const depth = slugSegments.value.length + 1;
-    // useRuntimeConfig 依赖请求上下文：在首个 await 之前同步捕获 baseURL
+    // 依赖请求上下文的值在首个 await 之前同步捕获
     const apiBase = getApiBaseUrl();
+    const ua = getRequestUserAgent();
 
     const [breadcrumbResult, sectionResult, treeResult] = await Promise.all([
         fetchCmsData<WikiTreeNode>(
             `/v1/tree?root=wiki&depth=${depth}&i18n=${lang}`,
-            { baseURL: apiBase },
+            { baseURL: apiBase, ua },
         ),
         fetchCmsData<WikiTreeNode>(
             `/v1/tree?root=${firstLevelRootPath.value}&i18n=${lang}`,
-            { baseURL: apiBase },
+            { baseURL: apiBase, ua },
         ),
         fetchCmsData<WikiTreeNode>(
             `/v1/tree?root=${treeRootPath.value}&depth=2&i18n=${lang}`,
-            { baseURL: apiBase },
+            { baseURL: apiBase, ua },
         ),
     ]);
 
@@ -311,7 +312,7 @@ const loadWikiPage = async (): Promise<WikiPagePayload> => {
     try {
         const contentResult = await fetchCmsData<WikiData>(
             `/v1/contents/by-path/${contentPath.value}?i18n=${lang}`,
-            { baseURL: apiBase },
+            { baseURL: apiBase, ua },
         );
         return {
             content: contentResult.data,
